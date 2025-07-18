@@ -11,6 +11,8 @@ load_dotenv()
 
 bot = commands.Bot(command_prefix=None, intents=disnake.Intents.all(), sync_commands = True)
 
+owner_id = config["owner_id"]
+
 @bot.event
 async def on_ready():
     await bot.change_presence(status = disnake.Status.online)
