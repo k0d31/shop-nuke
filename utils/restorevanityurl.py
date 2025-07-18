@@ -1,11 +1,10 @@
 import requests
 import json
 from db.db import Database
+from config import config
 
 db = Database("db/db.db")
 
-with open("config.json", "r", encoding="utf-8") as f:
-    config = json.load(f)
 
 async def restore_vanity_url(guild):
     data = await db.get_infomainsettings(guild.id)
