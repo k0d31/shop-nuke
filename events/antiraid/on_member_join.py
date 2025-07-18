@@ -1,11 +1,8 @@
 import disnake
-import json
 import datetime
 from disnake.ext import commands
 from db.db import Database
-
-with open("config.json", "r", encoding="utf-8") as f:
-    config = json.load(f)
+from config import config
 
 
 db = Database("db/db.db")
@@ -18,6 +15,7 @@ class AntiRaidJoin(commands.Cog):
     async def on_member_join(self, member):
         guild = member.guild
         data = await db.get_antiraid(guild.id)
+        owner_id = config['owner_id']
 
         if data[3] == 1:
             timereguser = member.created_at
