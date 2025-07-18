@@ -9,9 +9,6 @@ from config import config
 db = Database("db/db.db")
 load_dotenv()
 
-with open("config.json", "r", encoding="utf-8") as f:
-    config = json.load(f)
-
 bot = commands.Bot(command_prefix=None, intents=disnake.Intents.all(), sync_commands = True)
 
 @bot.event
